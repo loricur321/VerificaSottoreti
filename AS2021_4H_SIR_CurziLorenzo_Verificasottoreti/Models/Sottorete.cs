@@ -46,7 +46,17 @@ namespace AS2021_4H_SIR_CurziLorenzo_Verificasottoreti.Models
                 else
                     risultatoAND += "0";
             }
-            return false;
+
+            //Comparo l'indirizzo IP ricevuto in input con il risultato dell'operazione AND e
+            //in caso siano diversi significa che l'indirizzo IP non appartiene alla
+            //sottorete ricevuta in input
+
+            for(int i = 0; i < risultatoAND.Length; i++)
+            {
+                if (risultatoAND[i] != indirizzoIPBinario[i])
+                    return false;
+            }              
+            return true;
         }
 
         /// <summary>
