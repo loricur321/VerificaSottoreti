@@ -22,5 +22,26 @@ namespace VerificasottoretiTest
 
             Assert.AreEqual(false, Sottorete.Verifica("192.168.1.0", "255.255.255.0", "192.167.1.20"), "Errore nella verifica della sottorete");
         }
+
+        [TestMethod]
+        public void TestSottorete2()
+        {
+            /*
+                Network: 192.64.0.0
+                Subnet mask: 255.192.0.0
+              
+                192.64.1.2  AND 255.192.0.0 --> appartiene
+
+                192.65.1.2 AND 255.192.0.0 --> appartiene
+
+                192.128.1.2 AND 255.192.0.0 --> non appartiene
+             */
+
+            Assert.AreEqual(true, Sottorete.Verifica("192.64.0.0", "255.192.0.0", "192.64.1.2"), "Errore nella verifica della sottorete");
+
+            Assert.AreEqual(true, Sottorete.Verifica("192.64.0.0", "255.192.0.0", "192.65.1.2"), "Errore nella verifica della sottorete");
+
+            Assert.AreEqual(false, Sottorete.Verifica("192.64.0.0", "255.192.0.0", "192.128.1.2"), "Errore nella verifica della sottorete");
+        }
     }
 }

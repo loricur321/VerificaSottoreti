@@ -1,4 +1,5 @@
 ﻿using AS2021_4H_SIR_CurziLorenzo_Verificasottoreti.Models;
+using Pastel;
 using System;
 using System.Text;
 
@@ -10,14 +11,14 @@ namespace AS2021_4H_SIR_CurziLorenzo_Verificasottoreti
         {
             Console.WriteLine("Programma verifica sottoreti di Lorenzo Curzi 4H, 14/05/2021");
 
-            string indirizzoNetwork = Richiestadati("Inserire l'indirizzo netowrk della sottorete: ");
-            string subnetMask = Richiestadati("Inserire la sottorete: ");
-            string indirizzoIP = Richiestadati("Inserire l'indirizzo IP che si vuole verificare: ");
+            string indirizzoNetwork = Richiestadati("Inserire l'indirizzo netowrk della sottorete es. (192.168.1.0): ");
+            string subnetMask = Richiestadati("Inserire la sottorete es. (255.255.255.0): ");
+            string indirizzoIP = Richiestadati("Inserire l'indirizzo IP che si vuole verificare es. (192.168.1.1): ");
 
             if (Sottorete.Verifica(indirizzoNetwork,subnetMask, indirizzoIP))
-                Console.WriteLine($"L'indirizzo IP {indirizzoIP} appartiene alla sottorete: {indirizzoNetwork} con subnet mask {subnetMask}");
+                Console.WriteLine($"L'indirizzo IP {indirizzoIP} appartiene alla sottorete {indirizzoNetwork} con subnet mask {subnetMask}".Pastel("00FF00"));
             else
-                Console.WriteLine($"L'indirizzo IP {indirizzoIP} non appartiene alla sottorete: {indirizzoNetwork} con subnet mask {subnetMask}");
+                Console.WriteLine($"L'indirizzo IP {indirizzoIP} non appartiene alla sottorete {indirizzoNetwork} con subnet mask {subnetMask}".Pastel("FF0000"));
         }
 
         /// <summary>
@@ -49,7 +50,7 @@ namespace AS2021_4H_SIR_CurziLorenzo_Verificasottoreti
                 if (!flag)
                     return input;
                 else
-                    Console.WriteLine("Inserimento errato!");
+                    Console.WriteLine("Inserimento errato!".Pastel("FF0000"));
             }
         }
     }
