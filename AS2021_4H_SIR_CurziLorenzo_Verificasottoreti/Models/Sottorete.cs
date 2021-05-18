@@ -16,26 +16,10 @@ namespace AS2021_4H_SIR_CurziLorenzo_Verificasottoreti.Models
         /// <returns>true se l'indirizzo appartiene alla sottorete, in caso contrario false</returns>
         static public bool Verifica (string indirizzoNetwork, string subnetMask, string indirizzo)
         {
-            //Calcolo la versione binaria della subnet mask
-            string subnetMaskBinaria = "";
-            foreach(string s in subnetMask.Split("."))
-                subnetMaskBinaria += ConversioneBinaria(Convert.ToDouble(s)) + ".";         
-
-            //Calcolo la versione binaria dell'indirizzo IP
-            string indirizzoIPBinario = "";
-            foreach (string s in indirizzo.Split("."))
-                indirizzoIPBinario += ConversioneBinaria(Convert.ToDouble(s)) + ".";
-
-            //Calcolo la versione binaria dell'indirizzo IP di Netword
-            string indirizzoNetworkBinario = "";
-            foreach (string s in indirizzoNetwork.Split("."))
-                indirizzoNetworkBinario += ConversioneBinaria(Convert.ToDouble(s)) + ".";
-
-            //rimuovo l'ultimo punto ridondante
-            subnetMaskBinaria = subnetMaskBinaria.Remove(subnetMaskBinaria.Length - 1);
-            indirizzoIPBinario = indirizzoIPBinario.Remove(indirizzoIPBinario.Length - 1);
-            indirizzoNetworkBinario = indirizzoNetworkBinario.Remove(indirizzoNetworkBinario.Length - 1);
-
+            //Calcolo le versioni binarie
+            string subnetMaskBinaria = CalcoloBinario(subnetMask);
+            string indirizzoIPBinario = CalcoloBinario(indirizzo);
+            string indirizzoNetworkBinario = CalcoloBinario(indirizzoNetwork);
 
             //Variabile in cui salverò il risultato dell'operazione AND logico
             string risultatoAND = "";
@@ -60,6 +44,24 @@ namespace AS2021_4H_SIR_CurziLorenzo_Verificasottoreti.Models
                     return false;
             }              
             return true;
+        }
+
+        /// <summary>
+        /// Metodo che data un indirizzo IP decimale ritorna il suo corrispetivo binario
+        /// </summary>
+        /// <param name="daConvertire">indirizzo da convertire</param>
+        /// <returns>indirizzo IP binario</returns>
+        static string CalcoloBinario(string daConvertire)
+        {
+            string retVal = "";
+
+            //converto in binario
+            foreach (string s in daConvertire.Split("."))
+                retVal += ConversioneBinaria(Convert.ToDouble(s)) + ".";
+
+            //rimuovo l'ultimo punto ridondante
+            daConvertire = daConvertire.Remove(daConvertire.Length - 1);
+            return retVal;
         }
 
         /// <summary>
