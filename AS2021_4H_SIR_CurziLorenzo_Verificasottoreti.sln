@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31205.134
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AS2021_4H_SIR_CurziLorenzo_Verificasottoreti", "AS2021_4H_SIR_CurziLorenzo_Verificasottoreti\AS2021_4H_SIR_CurziLorenzo_Verificasottoreti.csproj", "{18DB3E37-81C1-4AAD-B733-FC06006C0226}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AS2021_4H_SIR_CurziLorenzo_Verificasottoreti", "AS2021_4H_SIR_CurziLorenzo_Verificasottoreti\AS2021_4H_SIR_CurziLorenzo_Verificasottoreti.csproj", "{18DB3E37-81C1-4AAD-B733-FC06006C0226}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VerificasottoretiTest", "VerificasottoretiTest\VerificasottoretiTest.csproj", "{10CBFFAD-3B33-46F1-8D1F-960B5B2805C6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{18DB3E37-81C1-4AAD-B733-FC06006C0226}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{18DB3E37-81C1-4AAD-B733-FC06006C0226}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{18DB3E37-81C1-4AAD-B733-FC06006C0226}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10CBFFAD-3B33-46F1-8D1F-960B5B2805C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10CBFFAD-3B33-46F1-8D1F-960B5B2805C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10CBFFAD-3B33-46F1-8D1F-960B5B2805C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10CBFFAD-3B33-46F1-8D1F-960B5B2805C6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

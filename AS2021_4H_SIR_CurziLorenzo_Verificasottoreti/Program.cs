@@ -10,13 +10,14 @@ namespace AS2021_4H_SIR_CurziLorenzo_Verificasottoreti
         {
             Console.WriteLine("Programma verifica sottoreti di Lorenzo Curzi 4H, 14/05/2021");
 
+            string indirizzoNetwork = Richiestadati("Inserire l'indirizzo netowrk della sottorete: ");
             string subnetMask = Richiestadati("Inserire la sottorete: ");
             string indirizzoIP = Richiestadati("Inserire l'indirizzo IP che si vuole verificare: ");
 
-            if (Sottorete.Verifica(subnetMask, indirizzoIP))
-                Console.WriteLine($"L'indirizzo IP {indirizzoIP} appartiene alla sottorete: {subnetMask}");
+            if (Sottorete.Verifica(indirizzoNetwork,subnetMask, indirizzoIP))
+                Console.WriteLine($"L'indirizzo IP {indirizzoIP} appartiene alla sottorete: {indirizzoNetwork} con subnet mask {subnetMask}");
             else
-                Console.WriteLine($"L'indirizzo IP {indirizzoIP} non appartiene alla sottorete: {subnetMask}");
+                Console.WriteLine($"L'indirizzo IP {indirizzoIP} non appartiene alla sottorete: {indirizzoNetwork} con subnet mask {subnetMask}");
         }
 
         /// <summary>

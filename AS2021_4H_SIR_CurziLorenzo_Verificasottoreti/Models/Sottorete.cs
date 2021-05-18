@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AS2021_4H_SIR_CurziLorenzo_Verificasottoreti.Models
 {
-    static class Sottorete
+    static public class Sottorete
     {
         /// <summary>
         /// Metodo che verifica l'appartenenza o meno di un indirizzo IP a una data sottorete
@@ -14,23 +14,27 @@ namespace AS2021_4H_SIR_CurziLorenzo_Verificasottoreti.Models
         /// <param name="subnetMask">sottorete</param>
         /// <param name="indirizzo">indirizzo IP</param>
         /// <returns>true se l'indirizzo appartiene alla sottorete, in caso contrario false</returns>
-        static public bool Verifica (string subnetMask, string indirizzo)
+        static public bool Verifica (string indirizzoNetwork, string subnetMask, string indirizzo)
         {
             //Calcolo la versione binaria della subnet mask
             string subnetMaskBinaria = "";
             foreach(string s in subnetMask.Split("."))
-                subnetMaskBinaria += ConversioneBinaria(Convert.ToDouble(s)) + ".";
-
-            
+                subnetMaskBinaria += ConversioneBinaria(Convert.ToDouble(s)) + ".";         
 
             //Calcolo la versione binaria dell'indirizzo IP
             string indirizzoIPBinario = "";
             foreach (string s in indirizzo.Split("."))
                 indirizzoIPBinario += ConversioneBinaria(Convert.ToDouble(s)) + ".";
 
+            //Calcolo la versione binaria dell'indirizzo IP di Netword
+            string indirizzoNetworkBinario = "";
+            foreach (string s in indirizzoNetwork.Split("."))
+                indirizzoNetworkBinario += ConversioneBinaria(Convert.ToDouble(s)) + ".";
+
             //rimuovo l'ultimo punto ridondante
             subnetMaskBinaria = subnetMaskBinaria.Remove(subnetMaskBinaria.Length - 1);
             indirizzoIPBinario = indirizzoIPBinario.Remove(indirizzoIPBinario.Length - 1);
+            indirizzoNetworkBinario = indirizzoNetworkBinario.Remove(indirizzoNetworkBinario.Length - 1);
 
 
             //Variabile in cui salverò il risultato dell'operazione AND logico
@@ -47,13 +51,12 @@ namespace AS2021_4H_SIR_CurziLorenzo_Verificasottoreti.Models
                     risultatoAND += "0";
             }
 
-            //Comparo l'indirizzo IP ricevuto in input con il risultato dell'operazione AND e
-            //in caso siano diversi significa che l'indirizzo IP non appartiene alla
-            //sottorete ricevuta in input
-
+            //Comparo il risultato dell'operazione AND con la versione binaria dell'indirizzo IP di Netword 
+            //Se sono uguali l'indirizzo IP apparterrà alla sottorete, in caso contrario non appartiene alla 
+            //sottorete data
             for(int i = 0; i < risultatoAND.Length; i++)
             {
-                if (risultatoAND[i] != indirizzoIPBinario[i])
+                if (risultatoAND[i] != indirizzoNetworkBinario[i])
                     return false;
             }              
             return true;
