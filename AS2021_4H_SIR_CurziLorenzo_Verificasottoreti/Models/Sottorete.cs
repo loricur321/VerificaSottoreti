@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AS2021_4H_SIR_CurziLorenzo_Verificasottoreti.Models
 {
-    static public class Sottorete
+    public class Sottorete
     {
         /// <summary>
         /// Metodo che verifica l'appartenenza o meno di un indirizzo IP a una data sottorete
@@ -14,7 +14,7 @@ namespace AS2021_4H_SIR_CurziLorenzo_Verificasottoreti.Models
         /// <param name="subnetMask">sottorete</param>
         /// <param name="indirizzo">indirizzo IP</param>
         /// <returns>true se l'indirizzo appartiene alla sottorete, in caso contrario false</returns>
-        static public bool Verifica (string indirizzoNetwork, string subnetMask, string indirizzo)
+        public bool Verifica (string indirizzoNetwork, string subnetMask, string indirizzo)
         {
             //Calcolo le versioni binarie
             string subnetMaskBinaria = CalcoloBinario(subnetMask);
@@ -51,7 +51,7 @@ namespace AS2021_4H_SIR_CurziLorenzo_Verificasottoreti.Models
         /// </summary>
         /// <param name="daConvertire">indirizzo da convertire</param>
         /// <returns>indirizzo IP binario</returns>
-        static string CalcoloBinario(string daConvertire)
+        string CalcoloBinario(string daConvertire)
         {
             string retVal = "";
 
@@ -83,7 +83,7 @@ namespace AS2021_4H_SIR_CurziLorenzo_Verificasottoreti.Models
         /// </summary>
         /// <param name="numero">numero da convertire</param>
         /// <returns>numero convertito</returns>
-        static string ConversioneBinaria(double numero)
+        string ConversioneBinaria(double numero)
         {
             string binario = ""; //stringa concatenata in cui salvberò i bit del numero binario
 
